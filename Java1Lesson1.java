@@ -39,9 +39,7 @@ public class Java1Lesson1{
     }
 
     public static boolean isNegative(int a){
-        if (a>=0) {
-            return false;
-        } return true;
+        return a < 0;
     }
 
     public static String hello(String name){
