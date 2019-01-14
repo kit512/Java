@@ -5,7 +5,7 @@ public class Java1Lesson1{
         byte b = 6;
         short sh = 222;
         int i = 22;
-        long l = 343;
+        long l = 343L;
         char ch = 'C';
         boolean boll = true;
         float fl = 3.3f;
@@ -21,8 +21,8 @@ public class Java1Lesson1{
         System.out.println("Выполнение метода с годом. " + vis_year(400));
     }
 
-    public static int add(int a, int b, int c, int d){
-        return (a * (b + (c / d)));
+    public static double add(int a, int b, int c, int d){
+        return (a * (b + ((double)c / d)));
     }
 
     public static boolean ot10do20(int a, int b){
@@ -40,8 +40,8 @@ public class Java1Lesson1{
 
     public static boolean isNegative(int a){
         if (a>=0) {
-            return true;
-        } return false;
+            return false;
+        } return true;
     }
 
     public static String hello(String name){
