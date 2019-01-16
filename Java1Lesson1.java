@@ -21,16 +21,16 @@ public class Java1Lesson1{
         System.out.println("Выполнение метода с годом. " + vis_year(400));
     }
 
-    public static double add(double a, double b, double c, double d){
+    public static double add(double a, double b, double c, double d) {
         return (a * (b + (c / d)));
     }
 
-    public static boolean ot10do20(int a, int b){
+    public static boolean ot10do20(int a, int b) {
         if (a+b>=10 & a+b<=20) return true;
         else return false;
    }
 
-    public static String isPositiveOrNegative(int a){
+    public static String isPositiveOrNegative(int a) {
         String b;
         if (a>=0) {
             b = "Число положительное";
@@ -38,21 +38,20 @@ public class Java1Lesson1{
         return b;
     }
 
-    public static boolean isNegative(int a){
+    public static boolean isNegative(int a) {
         return a < 0;
     }
 
-    public static String hello(String name){
+    public static String hello(String name) {
         String hello = "Hello, " + name + "!";
         return hello;
     }
 
-    public static String vis_year(int a){
+    public static String vis_year(int a) {
         String otvet;
         if (a % 4 != 0 | a % 100 == 0 & a % 400 != 0){
                 otvet = a + " год не високостный";
         }else otvet = a + " год високостный";
         return otvet;
     }
-
 }
