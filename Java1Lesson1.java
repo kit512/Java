@@ -21,8 +21,8 @@ public class Java1Lesson1{
         System.out.println("Выполнение метода с годом. " + vis_year(400));
     }
 
-    public static double add(int a, int b, int c, int d){
-        return (a * (b + ((double)c / d)));
+    public static double add(double a, double b, double c, double d){
+        return (a * (b + (c / d)));
     }
 
     public static boolean ot10do20(int a, int b){
