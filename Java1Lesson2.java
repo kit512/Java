@@ -1,3 +1,4 @@
+package geekbrains.Java1Lesson2;
 /**
  * Java 1. HomeWork 2
  *
@@ -12,7 +13,7 @@ public class Java1Lesson2 {
     public static void main(String[] args) {
         int [] arr6 = {1, 1, 1, 1, 1, 1, 1, 7};
         int [] arr7 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        int n = 4;
+        int n = -5;
 
         refresh();
         add();
@@ -56,24 +57,20 @@ public class Java1Lesson2 {
 
     public static void fillTheDiagonal () {
         int [][] arr = new int [5][5];
-        int x = 0;
-        int y = arr.length-1;
         System.out.println("№4");
         for (int i = 0; i < arr.length; i++) {
             for(int j = 0; j < arr.length; j++) {
-                if (x == j | y == j) arr[i][j] = 1;
+                if (i == j | i + j == arr.length - 1) arr[i][j] = 1;
                 System.out.print(arr[i][j] + "  ");
             }
             System.out.println();
-            x++;
-            y--;
         }
     }
 
     public static  void getMinAndMax () {
         int [] arr = {5, 9, 156, -1516, 4156,994};
-        int min = 0;
-        int max = 0;
+        int min = arr[0];
+        int max = arr[0];
         for (int i = 0; i < arr.length; i++) {
             if (min > arr[i]) min = arr[i];
             if (max < arr[i]) max = arr[i];
@@ -83,71 +80,28 @@ public class Java1Lesson2 {
     }
 
     public static boolean checkBalance(int [] a) {
-        int left = 0, right = 0,count =0;
-        boolean result = false;
-        for (int i = 0; i < a.length/2; i++) {
-            left += a[i];
-            right += a[a.length - 1 - i];
-            count++;
-        }   //поиск суммы на середине массива
-        if (a.length % 2 != 0 ) {
-            left += a[a.length/2];
-            count++;
-        } // граница, если массив состоит из нечетного количества жлементов
-        if (left == right) result = true;
-        else if (left > right) {
-            for (;;){
-            left -= a[count-1];
-            right += a[count-1];
-            count--;
-            if ( left == right) {
-                result = true;
-                break;
-            }
-            if (left < right) {
-                result = false;
-                break;
+        int sum = 0;
+        int x = 0;
+        for (int i = 0; i < a.length; i++) {
+            sum += a[i];
+        }   //поиск суммы
+        if (sum % 2 == 0){
+            for (int i = 0; x < sum/2; i++){
+                x += a[i];
+                if (x == sum/2) return true;
             }
         }
-        }else if (left < right) {
-            for (;;){
-            left += a[count-1];
-            right -= a[count-1];
-            count++;
-            if ( left == right) {
-                result = true;
-                break;
-            }
-            if (left > right) {
-                result = false;
-                break;
-            }
-        }
-        }
-        if (result == true) {
-            for (int i = 0; i < a.length; i++) {
-                if (i == count) System.out.print("|| ");
-                System.out.print(a[i] + " ");
-            }
-        }
-        return result;
+        return false;
     }
 
     public static int [] shift (int [] a, int b) {
-        if (b > 0) {
-            for (int i = a.length-1; i >= 0; i--) {
-                if(i-b >= 0){
-                    a[i] = a[i-b];
-                }else a[i] = 0;
-            }
-        } else {
-            for (int i = 0; i < a.length; i++) {
-                if(i-b < a.length){
-                    a[i] = a [i-b];
-                }else a[i] = 0;
-            }
+        int shiftArr [] = new int [a.length];
+        for (int i = 0; i < a.length; i++){
+            if (b + i < 0) shiftArr[a.length + b + i] = a[i];
+            else if(b + i < a.length) shiftArr[i + b] = a[i];
+            else shiftArr[i + b - a.length] = a[i];
         }
-        return a;
+        return shiftArr;
     }
 
  }
