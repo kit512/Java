@@ -8,12 +8,16 @@ public class Plate {
         this.food = food;
     }
 
-    public void decreaseFood(int n) {
+    public boolean decreaseFood(int n) {
+        if ( food < n ) {
+            return false;
+        }
         food -= n;
+        return true;
     }
 
-    public void getInfo() {
-        System.out.println("Plate: " + food);
+    public String getInfo() {
+        return "Plate: " + food;
     }
 
     public int getFood() {

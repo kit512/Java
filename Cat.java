@@ -13,12 +13,15 @@ public class Cat {
     }
 
     public void eat(Plate p) {
-        p.decreaseFood(appetite);
+        if (!getSatiety()) {
+            satiety = p.decreaseFood(appetite);
+        }
     }
 
-    public void setSatiety() {
-        satiety = true;
+    public void setSatiety(boolean satiety) {
+        this.satiety = satiety;
     }
+
     public boolean getSatiety() {
         return satiety;
     }
@@ -27,8 +30,12 @@ public class Cat {
         return appetite;
     }
 
-    public void getInfo() {
-        System.out.println(name + " eat " + appetite + ".");
+    public String getInfo(Plate p) {
+        if (getAppetite() < p.getFood()) {
+            return name + " eat " + appetite + ".";
+        } else {
+            return name + " don't eat, because not enough food.";
+        }
     }
 
     public String getName() {

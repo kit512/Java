@@ -19,20 +19,26 @@ public class Java1Lesson7 {
         cats[4] = new Cat("Vas'ka", 30);
         cats[5] = new Cat("Grif", 25);
 
-        for (int i = 0; i < 6; i++) {
-            plate.getInfo();
-            if (plate.getFood() >= cats[i].getAppetite()) {
-                cats[i].eat(plate);
-                cats[i].setSatiety();
-                cats[i].getInfo();
-            } else {
-                System.out.println(cats[i].getName() + " don't eat food, because his appetite: " + cats[i].getAppetite());
-            }
-            System.out.println(cats[i].getName() + " satiety: " + cats[i].getSatiety()+ ".");
+        for (Cat cat : cats) {
+            System.out.println(cat.getInfo(plate));
+            cat.eat(plate);
+            System.out.println(cat.getName() + " satiety: " + cat.getSatiety());
+            System.out.println(plate.getInfo());
             System.out.println();
         }
+
+        System.out.println(plate.getInfo());
         plate.setFood(200);
-        plate.getInfo();
+        System.out.println();
+
+        for (Cat cat : cats) {
+            cat.setSatiety(false);
+            System.out.println(cat.getInfo(plate));
+            cat.eat(plate);
+            System.out.println(cat.getName() + " satiety: " + cat.getSatiety());
+            System.out.println(plate.getInfo());
+            System.out.println();
+        }
     }
 }
 
