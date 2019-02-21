@@ -43,7 +43,7 @@ public class Phonebook {
 
     public void printPhonebook () {
         for (Person person : phonebook) {
-            System.out.println(person.getName() + " " + person.phoneNumber);
+            System.out.println(person.getName() + " " + person.getPhoneNumber());
         }
     }
 }
